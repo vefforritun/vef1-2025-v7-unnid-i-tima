@@ -25,13 +25,15 @@
 const todoList = [
   // Hér er hægt að fjarlægja komment til að hafa nokkur verkefni í byrjun
   // Ekki skila með þessu inni.
-  // { text: "Læra CSS", finished: true },
-  // { text: "Læra JavaScript", finished: false },
-  // { text: "Búa til verkefnalista", finished: false },
+  { text: "Læra CSS", finished: true },
+  { text: "Læra JavaScript", finished: false },
+  { text: "Búa til verkefnalista", finished: false },
 ];
 
 //------------------------------------------------------------------------------
 // Föll sem vinna með verkefnalistann
+
+console.log('halló frá scripts.js')
 
 /**
  * Búa til verkefni og bæta því aftast í verkefnalistann.
@@ -39,14 +41,21 @@ const todoList = [
  * @returns {number} Ný stærð verkefnalistans.
  */
 function createTodoItem(input) {
-  /* TODO útfæra */
+  const item = {
+    "text": input,
+    "finished": false,
+  }
+
+  todoList.push(item);
 }
 
 /**
  * Birtir verkefnalistann í console.
  */
 function list() {
-  /* TODO útfæra */
+  for (const todoItem of todoList) {
+    console.log(todoItem.text, 'er', todoItem.finished ? 'búið' : 'ekki búið')
+  }
 }
 
 /**
