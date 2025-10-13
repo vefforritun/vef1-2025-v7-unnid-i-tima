@@ -33,7 +33,7 @@ const todoList = [
 //------------------------------------------------------------------------------
 // Föll sem vinna með verkefnalistann
 
-console.log('halló frá scripts.js')
+console.log("halló frá scripts.js");
 
 /**
  * Búa til verkefni og bæta því aftast í verkefnalistann.
@@ -41,12 +41,17 @@ console.log('halló frá scripts.js')
  * @returns {number} Ný stærð verkefnalistans.
  */
 function createTodoItem(input) {
-  const item = {
-    "text": input,
-    "finished": false,
+  if (typeof input === "string") {
+    const item = {
+      text: input,
+      finished: false,
+    };
+
+    return todoList.push(item);
   }
 
-  todoList.push(item);
+  console.error("input verður að vera strengur, en var", typeof input);
+  return -1;
 }
 
 /**
@@ -54,7 +59,7 @@ function createTodoItem(input) {
  */
 function list() {
   for (const todoItem of todoList) {
-    console.log(todoItem.text, 'er', todoItem.finished ? 'búið' : 'ekki búið')
+    console.log(todoItem.text, "er", todoItem.finished ? "búið" : "ekki búið");
   }
 }
 
